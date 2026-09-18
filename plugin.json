@@ -1,0 +1,36 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "mssql-client-skills",
+  "description": "GitHub Copilot skills for building SQL Server and Azure SQL client applications and diagnosing connectivity failures.",
+  "version": "1.0.0",
+  "author": {
+    "name": "mssql-connectors",
+    "url": "https://github.com/mssql-connectors"
+  },
+  "homepage": "https://github.com/mssql-connectors/mssql-client-skills",
+  "repository": "https://github.com/mssql-connectors/mssql-client-skills",
+  "license": "MIT",
+  "keywords": [
+    "sql-server",
+    "azure-sql",
+    "database",
+    "dotnet",
+    "python",
+    "java",
+    "nodejs",
+    "go",
+    "connectivity"
+  ],
+  "extensions": {
+    "com.microsoft.mssql-client-skills": {
+      "skills": [
+        "./.github/skills/sql-app-dotnet/",
+        "./.github/skills/sql-app-python/",
+        "./.github/skills/sql-app-jdbc/",
+        "./.github/skills/sql-app-node/",
+        "./.github/skills/sql-app-go/",
+        "./.github/skills/sql-connectivity-debug/"
+      ]
+    }
+  }
+}

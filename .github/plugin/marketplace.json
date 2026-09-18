@@ -1,0 +1,32 @@
+{
+  "name": "mssql-client-skills",
+  "metadata": {
+    "description": "GitHub Copilot skills for SQL Server and Azure SQL client development",
+    "version": "1.0.0"
+  },
+  "owner": {
+    "name": "mssql-connectors",
+    "url": "https://github.com/mssql-connectors"
+  },
+  "plugins": [
+    {
+      "name": "mssql-client-skills",
+      "source": ".",
+      "description": "Build .NET, Python, Java, Node.js, and Go applications that connect to SQL Server or Azure SQL, and diagnose client-side connectivity failures.",
+      "version": "1.0.0",
+      "repository": "https://github.com/mssql-connectors/mssql-client-skills",
+      "license": "MIT",
+      "keywords": [
+        "sql-server",
+        "azure-sql",
+        "database",
+        "dotnet",
+        "python",
+        "java",
+        "nodejs",
+        "go",
+        "connectivity"
+      ]
+    }
+  ]
+}
