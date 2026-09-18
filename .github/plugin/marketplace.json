@@ -12,7 +12,7 @@
     {
       "name": "mssql-client-skills",
       "source": ".",
-      "description": "Build .NET, Python, Java, Node.js, and Go applications that connect to SQL Server or Azure SQL, and diagnose client-side connectivity failures.",
+      "description": "Build .NET, Python, Java, Node.js, and Go applications that connect to SQL Server or Azure SQL, boot local SQL Server containers, and diagnose client-side connectivity failures.",
       "version": "1.0.0",
       "repository": "https://github.com/mssql-connectors/mssql-client-skills",
       "license": "MIT",
@@ -25,7 +25,10 @@
         "java",
         "nodejs",
         "go",
-        "connectivity"
+        "connectivity",
+        "containers",
+        "docker",
+        "podman"
       ]
     }
   ]

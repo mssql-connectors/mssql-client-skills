@@ -12,8 +12,8 @@ copilot plugin marketplace add mssql-connectors/mssql-client-skills
 copilot plugin install mssql-client-skills@mssql-client-skills
 ```
 
-The plugin includes skills for .NET, Python, Java/JDBC, Node.js/TypeScript, Go, and
-cross-driver connectivity troubleshooting.
+The plugin includes skills for .NET, Python, Java/JDBC, Node.js/TypeScript, Go,
+local SQL Server containers, and cross-driver connectivity troubleshooting.
 
 ## Requirements
 
