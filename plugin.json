@@ -1,7 +1,8 @@
 {
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "mssql-client-skills",
   "description": "GitHub Copilot skills for building SQL Server and Azure SQL client applications, booting local SQL Server containers, and diagnosing connectivity failures.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": {
     "name": "mssql-connectors",
     "url": "https://github.com/mssql-connectors"
@@ -22,6 +23,5 @@
     "containers",
     "docker",
     "podman"
-  ],
-  "skills": "./.github/skills/"
+  ]
 }

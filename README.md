@@ -21,6 +21,7 @@ tuning, or T-SQL authoring.
     connection-strings.md          Auth modes, encryption, per-driver connection strings
     troubleshooting-checklist.md   Layered funnel used by sql-connectivity-debug
 plugin.json                 Installable plugin manifest
+skills/                     Portable Agent Plugins 1.0 skill package
 .github/plugin/marketplace.json  Marketplace catalog
 ```
 

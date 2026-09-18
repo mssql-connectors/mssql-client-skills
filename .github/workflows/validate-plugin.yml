@@ -5,6 +5,7 @@ on:
     paths:
       - ".github/plugin/**"
       - ".github/skills/**"
+      - "skills/**"
       - "plugin.json"
       - "README.md"
       - ".github/workflows/validate-plugin.yml"
@@ -12,6 +13,7 @@ on:
     paths:
       - ".github/plugin/**"
       - ".github/skills/**"
+      - "skills/**"
       - "plugin.json"
       - "README.md"
       - ".github/workflows/validate-plugin.yml"
@@ -46,10 +48,10 @@ jobs:
           if catalog_entry["source"] != ".":
               raise SystemExit("The catalog entry must package the repository root")
 
-          skills_path = plugin.get("skills", "skills/")
+          skills_path = root / "skills"
           skills = [
               path.relative_to(root).as_posix()
-              for path in (root / skills_path).iterdir()
+              for path in skills_path.iterdir()
               if path.is_dir() and (path / "SKILL.md").is_file()
           ]
           if not skills:
