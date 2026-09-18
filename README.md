@@ -14,6 +14,7 @@ tuning, or T-SQL authoring.
   sql-app-jdbc/             Java (mssql-jdbc, plain JDBC or Spring Data JPA)
   sql-app-node/             Node.js/TypeScript (mssql / Tedious / Knex / Sequelize)
   sql-app-go/               Go (go-mssqldb via database/sql)
+  sql-server-container/     Boot a local SQL Server container (Docker / WSLc / Podman)
   sql-connectivity-debug/   Diagnose connection failures across all of the above
     scripts/probe-connection.ps1   Layered DNS -> TCP -> sqlcmd connectivity probe
   _shared/                  Reference docs linked from every skill above
