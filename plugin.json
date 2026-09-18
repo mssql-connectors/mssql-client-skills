@@ -1,7 +1,7 @@
 {
   "name": "mssql-client-skills",
   "description": "GitHub Copilot skills for building SQL Server and Azure SQL client applications, booting local SQL Server containers, and diagnosing connectivity failures.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": {
     "name": "mssql-connectors",
     "url": "https://github.com/mssql-connectors"
