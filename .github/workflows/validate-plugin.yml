@@ -1,0 +1,58 @@
+name: Validate Copilot plugin
+
+on:
+  push:
+    paths:
+      - ".github/plugin/**"
+      - ".github/skills/**"
+      - "plugin.json"
+      - "README.md"
+      - ".github/workflows/validate-plugin.yml"
+  pull_request:
+    paths:
+      - ".github/plugin/**"
+      - ".github/skills/**"
+      - "plugin.json"
+      - "README.md"
+      - ".github/workflows/validate-plugin.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate manifests and skill references
+        shell: python
+        run: |
+          import json
+          from pathlib import Path
+
+          root = Path.cwd()
+          marketplace = json.loads((root / ".github/plugin/marketplace.json").read_text())
+          plugin = json.loads((root / "plugin.json").read_text())
+
+          if marketplace["name"] != plugin["name"]:
+              raise SystemExit("Marketplace and plugin names must match")
+
+          catalog_entry = next(
+              item for item in marketplace["plugins"]
+              if item["name"] == plugin["name"]
+          )
+          if catalog_entry["version"] != plugin["version"]:
+              raise SystemExit("Marketplace and plugin versions must match")
+          if catalog_entry["source"] != ".":
+              raise SystemExit("The catalog entry must package the repository root")
+
+          skills = plugin["extensions"]["com.microsoft.mssql-client-skills"]["skills"]
+          for skill in skills:
+              skill_file = root / skill / "SKILL.md"
+              if not skill_file.is_file():
+                  raise SystemExit(f"Missing skill manifest: {skill}")
+              frontmatter = skill_file.read_text(encoding="utf-8").split("---", 2)
+              if len(frontmatter) != 3 or "name:" not in frontmatter[1] or "description:" not in frontmatter[1]:
+                  raise SystemExit(f"Invalid skill frontmatter: {skill_file}")
+
+          print(f"Validated {len(skills)} skills.")
