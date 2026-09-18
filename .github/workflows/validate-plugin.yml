@@ -46,7 +46,14 @@ jobs:
           if catalog_entry["source"] != ".":
               raise SystemExit("The catalog entry must package the repository root")
 
-          skills = plugin["extensions"]["com.microsoft.mssql-client-skills"]["skills"]
+          skills_path = plugin.get("skills", "skills/")
+          skills = [
+              path.relative_to(root).as_posix()
+              for path in (root / skills_path).iterdir()
+              if path.is_dir() and (path / "SKILL.md").is_file()
+          ]
+          if not skills:
+              raise SystemExit(f"No skills found under configured path: {skills_path}")
           for skill in skills:
               skill_file = root / skill / "SKILL.md"
               if not skill_file.is_file():
